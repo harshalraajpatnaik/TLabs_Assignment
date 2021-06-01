@@ -1,0 +1,40 @@
+<%- include('./components/head.ejs') %>
+    <link rel="stylesheet" href="/css/departments.css">
+    <title>Manage Department</title>
+</head>
+<body>
+    <%- include('./components/navbar.ejs')%>
+    
+    <section class="manage">
+        <div class="manage__header">
+            <h1>Create Employee</h1>
+        </div>
+
+        <form id="form">
+
+            <div class="form__control">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" name="firstname" required>
+            </div>
+            <div class="form__control">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" name="lastname" required>
+            </div>
+            <div class="form__control">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age">
+            </div>
+            <div class="form__control">
+                <label for="department">department Name</label>
+                <input type="text" id="department" name="department" required>
+            </div>
+            <div class="btn-container">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+
+    </section>
+
+    <script src="/js/createEmploye.js"></script>
+</body>
+</html>

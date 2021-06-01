@@ -1,0 +1,100 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  color: #777;
+  font-size: 1.6rem;
+}
+
+.btn {
+  padding: 5px 2rem;
+  border-radius: 5px;
+  background-color: dodgerblue;
+  color: #eee;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.navbar {
+  font-size: 1.6rem;
+  padding: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.navbar ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-right: 3rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #777;
+}
+
+section {
+  width: 80%;
+  margin: 5rem auto;
+}
+
+.department__header {
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.department table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.department td,
+.department th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.employee__header {
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.employee table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.employee td,
+.employee th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.line {
+  margin: 3rem;
+  border: 1px solid #535353;
+}
+/*# sourceMappingURL=home.css.map */

@@ -1,0 +1,29 @@
+<%- include('./components/head.ejs') %>
+    <link rel="stylesheet" href="/css/departments.css">
+    <title>Manage Department</title>
+</head>
+<body>
+    <%- include('./components/navbar.ejs')%>
+    
+    <section class="manage">
+        <div class="manage__header">
+            <h1>Edit Department</h1>
+        </div>
+
+        <form id="form" data-id="<%=id%>">
+
+            <div class="form__control">
+                <label for="name">Department Name</label>
+                <input type="text" id="name" value="<%=name%>" name="name">
+            </div>
+            <div class="btn-container">
+                <button type="submit" style="margin-right: 1rem;" class="btn">Update</button>
+                <button id="del-btn" class="btn">Delete</button>
+            </div>
+        </form>
+
+    </section>
+
+    <script src="/js/editDepartment.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<%- include('./components/head.ejs') %>
+    <link rel="stylesheet" href="/css/home.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <%- include('./components/navbar.ejs')%>
+
+    <section class="department">
+        <div class="department__header">
+            <h2>All Departments</h2>
+        </div>
+        <table>
+            <tr>
+              <th>Serial No</th>
+              <th>Department Name</th>
+              <th></th>
+            </tr>
+            <% departments.forEach((dept,i)=>{%>
+            <tr>
+              <td><%- i+1%></td>
+              <td><%=dept.name%></td>
+              <td>
+                  <a href="/editDepartment?name=<%=dept.name%>&id=<%=dept.id%>" class="btn">Edit</a>
+              </td>
+            </tr>
+            <%})%>
+        </table>
+    </section>
+
+    <div class="line"></div>
+
+    <section class="employee">
+        <div class="employee__header">
+            <h2>All Employees</h2>
+        </div>
+        <table>
+            <tr>
+              <th>Serial No</th>
+              <th>Employee Name</th>
+              <th>Department Name</th>
+              <th></th>
+            </tr>
+            <%employees.forEach((c,i)=>{%>
+            <tr>
+              <td><%- i+1%></td>
+              <td><%=c.firstname%> <%=c.lastname%></td>
+              <td><%=c.departmentname%></td>
+              <td>
+                <a href="/editEmploye?firstname=<%=c.firstname%>&id=<%=c.id%>&lastname=<%=c.lastname%>&age=<%=c.age%>&department=<%=c.departmentname%>" class="btn">Edit</a>
+              </td>
+            </tr>
+            <%})%>
+        </table>
+    </section>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<%- include('./components/head.ejs') %>
+    <link rel="stylesheet" href="/css/departments.css">
+    <title>Manage Department</title>
+</head>
+<body>
+    <%- include('./components/navbar.ejs')%>
+    
+    <section class="manage">
+        <div class="manage__header">
+            <h1>Create Employee</h1>
+        </div>
+
+        <form id="form" data-id="<%=id%>">
+
+            <div class="form__control">
+                <label for="firstname">First Name</label>
+                <input type="text" id="firstname" value="<%=firstname%>" name="firstname" required>
+            </div>
+            <div class="form__control">
+                <label for="lastname">Last Name</label>
+                <input type="text" id="lastname" value="<%=lastname%>" name="lastname" required>
+            </div>
+            <div class="form__control">
+                <label for="age">Age</label>
+                <input type="number" id="age" value="<%=age%>" name="age">
+            </div>
+            <div class="form__control">
+                <label for="department">department Name</label>
+                <input type="text" id="department" value="<%=department%>" name="department" required>
+            </div>
+            <div class="btn-container">
+                <button type="submit" style="margin-right: 1rem;" class="btn">Update</button>
+                <button id="del-btn" class="btn">Delete</button>
+            </div>
+        </form>
+
+    </section>
+
+    <script src="/js/updateEmployee.js"></script>
+</body>
+</html>
