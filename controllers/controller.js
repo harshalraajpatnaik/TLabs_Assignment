@@ -1,4 +1,9 @@
 const { client } = require('../lib/db')
+const fs = require('fs')
+const path = require('path')
+const bcrypt = require('bcrypt')
+
+const jwt = require('jsonwebtoken')
 const model = require('../model/model')
 
 // console.log(db)
@@ -49,6 +54,9 @@ exports.getEditEmployeePage = (req, res)=>{
     })
 }
 
+exports.getLoginPage =(req, res)=>{
+    res.render('login')
+}
 
 
 exports.creteEmploye = (req, res) => {
@@ -141,4 +149,38 @@ exports.deleteEmployee = async (req, res)=>{
     }
 
     res.json('success')
+}
+
+
+
+// AuthRoutes
+
+exports.login = (req, res)=>{
+    const {username, password} = req.body
+
+    // const hashPassword = bcrypt.hashSync(password, 12)
+    const usersPath = path.join(process.cwd(), 'data', 'users.json')
+
+    const usersData = fs.readFileSync(usersPath, 'utf-8')
+    const data = JSON.parse(usersData)
+    const comparePassword = bcrypt.compareSync(password, data.password)
+
+    if(username != data.username && comparePassword){
+        res.redirect('/login')
+        return
+    }
+    
+    const token = jwt.sign({
+        username
+    }, 'mySecret')
+
+
+    res.cookie('token', token, {httpOnly:true})
+
+    res.redirect('/')
+}
+
+exports.logout = (req, res)=>{
+    res.clearCookie('token');
+    res.redirect('/')
 }

@@ -4,4 +4,12 @@
         <li><a href="/manageDepartment">Create Depertment</a></li>
         <li><a href="/createEmploye">Create Employee</a></li>
     </ul>
+
+    <ul>
+        <%if(!isLoggedIn){%>
+        <li><a href="/login" class="btn">Login</a></li>
+        <%}else{%>
+        <li><a href="/logout" class="btn">Logout</a></li>
+        <%}%>
+    </ul>
 </nav>

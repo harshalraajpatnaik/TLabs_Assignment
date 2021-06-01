@@ -1,0 +1,32 @@
+.login{
+    width: 50rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    flex: 1;
+    margin: 0 auto;
+
+    form{
+        width: 80%;
+        margin: 3rem auto;
+    
+        .form__control{
+            margin-bottom: 3rem;
+            display: block;
+            label{
+                width: 100%;
+            }
+            input{
+                width: 100%;
+                padding: 1rem;
+            }
+        }
+    
+        .btn-container{
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

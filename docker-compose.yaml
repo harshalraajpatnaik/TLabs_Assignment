@@ -1,0 +1,18 @@
+version: "3.8"
+
+services: 
+    node:
+        container_name: trak-labs
+        image: node:14-alpine3.10
+        volumes: 
+            - ./:/app
+        working_dir: /app
+    
+    postgres:
+        container_name: trk-labs-db
+        image: postgres:13.3-alpine
+        ports: 
+            - 5432:5432
+        volumes: 
+            - ./database:/var/lib/postgresql/data
+        
