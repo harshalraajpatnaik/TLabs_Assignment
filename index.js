@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(router)
-
+// Version 2 ready
 dbConnect(()=>{
     app.listen(80)
     console.log('database connected')
