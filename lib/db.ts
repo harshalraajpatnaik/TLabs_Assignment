@@ -1,4 +1,4 @@
-const { Client } = require('pg');
+import {Client} from 'pg'
 
 const client = new Client({
     user: 'postgres',
@@ -39,7 +39,7 @@ const createemployeeDb = () => {
     })
 }
 
-exports.dbConnect = (cb) => {
+const dbConnect = (cb:()=>void) => {
     client.connect();
 
     // Make Databases
@@ -49,5 +49,7 @@ exports.dbConnect = (cb) => {
     cb()
 }
 
-
-exports.client=client
+export {
+    dbConnect,
+    client
+}

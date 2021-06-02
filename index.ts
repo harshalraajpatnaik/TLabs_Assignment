@@ -1,13 +1,14 @@
-const path = require('path')
+import path from 'path'
 
-const express = require('express')
-const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser')
-const jwt = require('jsonwebtoken')
+import express from 'express'
+import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'   
+import jwt from 'jsonwebtoken'
 
-const {dbConnect} = require('./lib/db')
 
-const router = require('./routes/router')
+import {dbConnect} from './lib/db'
+
+import router from './routes/router'
 
 const app = express()
 

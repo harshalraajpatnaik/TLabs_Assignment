@@ -1,4 +1,4 @@
-const {client} = require('../lib/db')
+import {client} from '../lib/db'
 
 exports.createDepartment = ({name, uniqid})=>{
     const mutation = `
@@ -9,7 +9,7 @@ exports.createDepartment = ({name, uniqid})=>{
         client.query(mutation,(err, res) => {
             if (err) {
                 console.log(err)
-                throw new Error(err)
+                throw new Error('Error mutating in DB')
             }
         })
         return true
@@ -29,7 +29,7 @@ exports.editDepartment = ({name, id})=>{
         client.query(mutation,(err, res) => {
             if (err) {
                 console.log(err)
-                throw new Error(err)
+                throw new Error('Error mutating in DB')
             }
         })
         return true
@@ -48,7 +48,7 @@ exports.deleteDepartment = ({id})=>{
         client.query(mutation,(err, res) => {
             if (err) {
                 console.log(err)
-                throw new Error(err)
+                throw new Error('Error mutating in db')
             }
         })
         return true
@@ -67,7 +67,7 @@ exports.deleteEmployee = ({id})=>{
         client.query(mutation,(err, res) => {
             if (err) {
                 console.log(err)
-                throw new Error(err)
+                throw new Error('Error mutating in db')
             }
         })
         return true
@@ -86,7 +86,7 @@ exports.createEmployee = ({firstName, lastName, age, department, uniqid})=>{
         client.query(mutation,(err, res) => {
             if (err) {
                 console.log(err)
-                throw new Error(err)
+                throw new Error('Error mutating in db')
             }
         })
         return true
@@ -110,7 +110,7 @@ exports.editEmployee = ({id, firstName, lastName, age, department})=>{
         client.query(mutation,(err, res) => {
             if (err) {
                 console.log(err)
-                throw new Error(err)
+                throw new Error('Error mutating in db')
             }
         })
         return true

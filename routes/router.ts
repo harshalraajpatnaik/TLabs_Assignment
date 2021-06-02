@@ -1,6 +1,6 @@
-const express  = require('express')
-const controller = require('../controllers/controller')
-const {auth, restAuth} = require('../middleware/auth')
+import express from 'express'
+import * as controller from '../controllers/controller'
+import {auth, restAuth} from '../middleware/auth'
 
 const router = express.Router()
 
@@ -33,4 +33,4 @@ router.post('/createEmployee', restAuth, controller.createEmployee)
 router.post('/login', controller.login)
 router.get('/logout', controller.logout)
 
-module.exports = router
+export default router
