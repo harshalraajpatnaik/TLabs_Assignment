@@ -1,0 +1,49 @@
+Documentataion of API
+
+GET Requests
+
+1. '/'  is used for getting the HomePage
+
+2. '/login' is used to get LoginPage
+
+3. '/manageDepartment' to go to the ManageDepartment Panel
+Authorisation using Username and Password is required for this page
+
+4. '/editDepartment' to go to the EditDepartment Panel
+Authorisation using Username and Password is required for this page
+
+5.'/createEmploye' to go to Create Employee Panel
+Authorisation using Username and Password is required for this page
+
+6. '/editEmploye' to go to EditEmployeePage panel
+Authorisation using Username and Password is required for this page
+
+*************************************************************************************
+POST Routes (Authorisation using Username and Password is required for these pages)
+
+1. '/createDepartment', to create createDepartment
+
+2. '/createEmployee' to go to create Employee
+
+*************************************************************************************
+PUT Routes (Authorisation using Username and Password is required for these pages)
+
+1. '/editDepartment' to go to edit the editDepartment
+
+2. '/editEmployee' to got to edit the editEmployee
+
+*************************************************************************************
+DELETE Routes (Authorisation using Username and Password is required for these pages)
+
+1. '/deleteDepartment' to go to delete the Department
+
+2. '/deleteEmployee' to go to delete the Employee
+
+*************************************************************************************
+Commands
+
+npm start : run the production server
+npm run dev: run the development server
+npm run build": compiles the .ts files to .js files
+
+*************************************************************************************
