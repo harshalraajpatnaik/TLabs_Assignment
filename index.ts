@@ -1,9 +1,9 @@
 import path from 'path'
 
-import express from 'express'
+import express, {Request, Response, NextFunction} from 'express'
 import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'   
-import jwt from 'jsonwebtoken'
+import jwt, { decode } from 'jsonwebtoken'
 
 
 import {dbConnect} from './lib/db'
@@ -17,12 +17,12 @@ app.set('views', './Views')
 
 app.use(cookieParser())
 
-app.use((req, res, next)=>{
+app.use((req:Request, res:Response, next:NextFunction)=>{
     const {token} = req.cookies
-    const decodedToken = jwt.decode(token, {key: 'mySecret'})
+
+    const decodedToken = jwt.decode(token)
     
-    req.isLoggedIn = decodedToken&&decodedToken.username=='admin'?true:false
-    res.locals.isLoggedIn = decodedToken&&decodedToken.username=='admin'?true:false
+    res.locals.isLoggedIn = decodedToken?true:false
     next()
 })
 

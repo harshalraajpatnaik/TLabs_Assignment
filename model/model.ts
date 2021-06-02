@@ -1,9 +1,9 @@
 import {client} from '../lib/db'
 
-exports.createDepartment = ({name, uniqid})=>{
+exports.createDepartment = (arg: {name:string, uniqid: string})=>{
     const mutation = `
     INSERT INTO depertments(id,name) 
-    VALUES('${uniqid}', '${name}');
+    VALUES('${arg.uniqid}', '${arg.name}');
     `
     try {
         client.query(mutation,(err, res) => {
@@ -19,11 +19,11 @@ exports.createDepartment = ({name, uniqid})=>{
     }
 }
 
-exports.editDepartment = ({name, id})=>{
+exports.editDepartment = (arg:{name:string, id:string})=>{
     const mutation = `
     UPDATE depertments
-    SET name= '${name}' 
-    WHERE id='${id}';
+    SET name= '${arg.name}' 
+    WHERE id='${arg.id}';
     `
     try {
         client.query(mutation,(err, res) => {
@@ -39,7 +39,8 @@ exports.editDepartment = ({name, id})=>{
     }
 }
 
-exports.deleteDepartment = ({id})=>{
+exports.deleteDepartment = (arg:{id:string})=>{
+    const {id} = arg
     const mutation = `
     DELETE FROM depertments
     WHERE id='${id}';
@@ -58,10 +59,10 @@ exports.deleteDepartment = ({id})=>{
     }
 }
 
-exports.deleteEmployee = ({id})=>{
+exports.deleteEmployee = (arg:{id:string})=>{
     const mutation = `
     DELETE FROM Employee
-    WHERE id='${id}';
+    WHERE id='${arg.id}';
     `
     try {
         client.query(mutation,(err, res) => {
@@ -77,10 +78,10 @@ exports.deleteEmployee = ({id})=>{
     }
 }
 
-exports.createEmployee = ({firstName, lastName, age, department, uniqid})=>{
+exports.createEmployee = (arg:{firstName: string, lastName: string, age: string, department: string, uniqid: string})=>{
     const mutation = `
     INSERT INTO Employee(id, firstname, lastname, age, departmentname) 
-    VALUES('${uniqid}', '${firstName}', '${lastName}', '${age}', '${department}');
+    VALUES('${arg.uniqid}', '${arg.firstName}', '${arg.lastName}', '${arg.age}', '${arg.department}');
     `
     try {
         client.query(mutation,(err, res) => {
@@ -97,14 +98,14 @@ exports.createEmployee = ({firstName, lastName, age, department, uniqid})=>{
 }
 
 
-exports.editEmployee = ({id, firstName, lastName, age, department})=>{
+exports.editEmployee = (arg:{id: string, firstName: string, lastName: string, age: string, department: string})=>{
     const mutation = `
     UPDATE Employee
-    SET firstname= '${firstName}',
-        lastname= '${lastName}',
-        age='${age}',
-        departmentname= '${department}' 
-    WHERE id='${id}';
+    SET firstname= '${arg.firstName}',
+        lastname= '${arg.lastName}',
+        age='${arg.age}',
+        departmentname= '${arg.department}' 
+    WHERE id='${arg.id}';
     `
     try {
         client.query(mutation,(err, res) => {

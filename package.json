@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node dist/index.js",
+    "dev": "nodemon index.ts",
+    "clean": "rimraf dist",
+    "compile": "tsc -p .",
+    "copy-public": "cp -r ./public ./dist/public",
+    "copy-views": "cp -r ./views ./dist/views",
+    "copy": "npm run copy-public && npm run copy-views",
+    "build": "npm run clean && npm run compile && npm run copy"
   },
   "author": "",
   "license": "ISC",
